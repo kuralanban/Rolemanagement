@@ -1,0 +1,52 @@
+<div class="formContainer">
+  <div class="signInForm">
+    <form class=""  [formGroup]="roleForm">
+      <div class="heading">
+        <h2 class="headings">Create Role</h2>
+        <h3>Set role permissions</h3>
+      </div>
+      <br>
+
+      <div class="form-group roleDiv">
+        <div>
+          <label for="roleName">Role Name</label> <br>
+          <input type="text" id="roleName" name="roleName" class="form-control" placeholder="Enter Role Name"
+            required formControlName="roleName">
+          <small class="text-danger" *ngIf="roleForm.get('roleName')?.invalid && roleForm.touched">Role name is required</small>
+        </div>
+      </div>
+      <br>
+      <div class="form-group instrument">
+        <h2 class="headings">Instrument Permissions</h2>
+        <div class="pageAccess">
+          <section class="example-section" *ngFor="let permission of roleDetails.instrumentPermissions">
+            <div>
+              <label for="">{{ permission.instrumentName }}</label>
+              <input type="checkbox" name="permissions" formControlName="{{ permission.instrumentName }}" [(checked)]="permission.permissionStatus" id="checkBox"
+       (change)="togglePermissions(permission)">
+
+            </div>
+          </section>
+          <!-- 2 -->
+          <!-- <section class="example-section" *ngFor="let permission of roleForm.get('instrumentPermissions')?.value | keyvalue">
+            <p><mat-checkbox name="{{permission.key}}" [(ngModel)]="permission.value" (change)="togglePermissions(permission)">{{ permission.key}}</mat-checkbox></p>
+          </section> -->
+          <!-- 3 -->
+          <!-- <section class="example-section" *ngFor="let permission of roleDetails.instrumentPermissions">
+            <p><mat-checkbox name="{{permission.instrumentName}}" [(ngModel)]="permission.permissionStatus" (change)="togglePermissions(permission)">{{ permission.instrumentName}}</mat-checkbox></p>
+          </section> -->
+        </div>
+      </div>
+      <br>
+      <div class="btns">
+        <button type="submit" class="btn submitBtn text-center" id="Formbtn" [disabled]="roleForm.invalid" (click)="onSubmit()">Create</button>
+        <button type="submit" class="btn btn-light" id="Formbtn">Cancel</button>
+
+      </div>
+      <br>
+      <br>
+      <small>By Changing, you agree to give users access to concerned pages.</small>
+      <br>
+    </form>
+  </div>
+</div>

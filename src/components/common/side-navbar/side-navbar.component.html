@@ -1,0 +1,172 @@
+
+
+<div class="notMobileNavbar" *ngIf="!isMobile">
+<div class="navbarContainer" (mouseenter)="showNaveBar()" [ngClass]="{'ChangenavbarWidth': showNavBar}" *ngIf="!isMobile">
+  <div class="notMobile">
+     <div class="navheader" [ngClass]="{'justify': isNavbar$}" [ngClass]="{'addNavHeaderwidth': showNavBar}">
+    <div class="logo">
+      <img src="../../../assets/aspire.png" alt="">
+    </div>
+    <div *ngIf="showNavBar">
+      <h2>Aspire</h2>
+    </div>
+    <div *ngIf="showNavBar">
+      <span class="material-symbols-outlined" (click)="hideNavbarView()">
+        chevron_left
+        </span>
+    </div>
+  </div>
+  <div class="navItemContainer">
+    <div class="navitemR" (click)="routeToHome()" *ngIf="this.permissionService.isSuperAdmin$">
+      <div>
+        <span class="material-symbols-outlined">
+          dashboard
+          </span>
+      </div>
+      <div *ngIf="showNavBar">
+        Dashboard
+      </div>
+          </div>
+
+    <div class="navitemR" (click)="routeToUserHome()">
+    <div>
+      <span class="material-symbols-outlined">
+        home
+        </span>
+    </div>
+    <div *ngIf="showNavBar">
+      Home
+    </div>
+  </div>
+  <div class="navitemR" *ngIf="this.permissionService.isSuperAdmin$">
+    <div>
+      <span class="material-symbols-outlined">
+        add_circle
+        </span>
+    </div>
+    <div *ngIf="showNavBar" (click)="createInstrument()">
+      Create instrument
+    </div>
+  </div>
+  <div class="navitemR" (click)="routeToInstrument()" *ngIf="this.permissionService.isSuperAdmin$">
+    <div>
+      <span class="material-symbols-outlined">
+        robot_2
+        </span>
+    </div>
+    <div *ngIf="showNavBar">
+       Instruments
+    </div>
+  </div>
+
+  <div class="navitemR" *ngIf="!permissionService.loginStatus()">
+    <div>
+      <span class="material-symbols-outlined">
+        shield_person
+        </span>
+    </div>
+    <div *ngIf="showNavBar" (click)="routeToSignIn()" >
+      Sign In
+    </div>
+  </div>
+  <div class="navitemR" (click)="logout()" *ngIf="permissionService.loginStatus()">
+    <div>
+      <span class="material-symbols-outlined">
+        move_item
+        </span>
+    </div>
+    <div *ngIf="showNavBar" >
+      Logout
+    </div>
+  </div>
+
+  </div>
+  </div>
+</div>
+</div>
+<div class="navbarR " [ngClass]="{'toggleNavHeight': isNavbar$ | async}" *ngIf="isMobile">
+  <mat-drawer-container class="example-container" autosize id="mat">
+    <mat-drawer #drawer class="example-sidenav fixed-navbar" mode="side" id="navDrawer" [opened]="isNavbar$ | async">
+
+<div class="navbarContainer ">
+     <div class="navheader" [ngClass]="{'justify': isNavbar$}" [ngClass]="{'addNavHeaderwidth': showNavBar}">
+    <div class="logo">
+      <img src="../../../assets/aspire.png" alt="" style="height: 30px;">
+    </div>
+    <div>
+      <h2>Aspire</h2>
+    </div>
+    <div id="arrow">
+      <span class="material-symbols-outlined" (click)="hideNavbarView()" >
+        chevron_left
+        </span>
+    </div>
+  </div>
+  <div class="navItemContainer" >
+    <div class="navitemR" (click)="routeToHome()" *ngIf="this.permissionService.isSuperAdmin$">
+      <div>
+        <span class="material-symbols-outlined">
+          dashboard
+          </span>
+      </div>
+      <div>
+        Dashboard
+      </div>
+          </div>
+
+    <div class="navitemR" (click)="routeToUserHome()">
+    <div>
+      <span class="material-symbols-outlined">
+        home
+        </span>
+    </div>
+    <div>
+      Home
+    </div>
+  </div>
+  <div class="navitemR" *ngIf="this.permissionService.isSuperAdmin$">
+    <div>
+      <span class="material-symbols-outlined">
+        add_circle
+        </span>
+    </div>
+    <div (click)="createInstrument()">
+      Create Instrument
+    </div>
+  </div>
+  <div class="navitemR" (click)="routeToInstrument()" *ngIf="this.permissionService.isSuperAdmin$">
+    <div>
+      <span class="material-symbols-outlined">
+        robot_2
+        </span>
+    </div>
+    <div *ngIf="showNavBar">
+      Instruments
+    </div>
+  </div>
+
+  <div class="navitemR" (click)="routeToSignIn()" *ngIf="!permissionService.loginStatus()">
+    <div>
+      <span class="material-symbols-outlined">
+        shield_person
+        </span>
+    </div>
+    <div >
+      Sign In
+    </div>
+  </div>
+  <div class="navitemR" (click)="logout()" *ngIf="permissionService.loginStatus()">
+    <div>
+      <span class="material-symbols-outlined">
+        move_item
+        </span>
+    </div>
+    <div *ngIf="showNavBar">
+      Logout
+    </div>
+  </div>
+  </div>
+  </div>
+    </mat-drawer>
+  </mat-drawer-container>
+</div>

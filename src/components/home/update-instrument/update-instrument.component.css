@@ -1,0 +1,108 @@
+.formContainer{
+  padding: 10px;
+}
+.formContainer,.heading,.roleDiv{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.roleDiv{
+  padding: 10px;
+}
+.heading{
+  flex-direction: column;
+  align-items: center;
+}
+#roleName{
+  width: 80%;
+  height: 30px;
+}
+.roleDiv div{
+  width:100%;
+  margin: 10px 5px;
+}
+.headings{
+  font-weight: 500;
+}
+*{
+  font-weight: 800;
+}
+.instrument{
+  padding: 10px 20px;
+}
+.example-section div{
+  border-bottom: 1px solid var(--borderGrey);
+  padding: 5px 0px 10px 0px;
+}
+.example-section label{
+  width: 100px;
+}
+.submitBtn{
+  color: white;
+  background-color: var(--kVoilet);
+}
+.btns{
+  display: flex;
+  justify-content: center;
+}
+.btns button{
+  margin: 5px 10px;
+}
+#checkBox{
+  height: 30px;
+  margin: 5px 10px;
+  position: relative;
+  top: 10px;
+
+}
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-input {
+  appearance: none;
+  width: 24px;
+  height: 24px; /* Increase the height of the checkbox */
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.checkbox-input:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.checkbox-label {
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 24px; /* Match the line-height to the checkbox height */
+}
+.deleteBtn{
+  display: flex;
+}
+.deleteBtn button{
+  margin: 5px 10px;
+}
+.delete{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.warnMessage div{
+margin: 10px 5px;
+ }
+.warnMessage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

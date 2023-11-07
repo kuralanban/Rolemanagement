@@ -1,0 +1,87 @@
+<div class="loginContainer">
+  <div class="imageContainer">
+    <img src="../../../assets/boy.png" alt="" />
+  </div>
+  <div class="login">
+    <div class="loginForm">
+      <div class="formHeader">
+        <div>
+          <img src="../../../assets/aspire.png" alt="" style="height: 50px;" />
+        </div>
+        <div>
+          <h3 class="title">
+            Aspire
+          </h3>
+        </div>
+      </div>
+      <div class="welcomeDiv">
+        <div class="welcomAspire">
+          Welcome to Aspire! 👋
+        </div>
+        <div id="sec">
+          Please register to your account 
+        </div>
+      </div>
+      <div class="form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="example-container">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter Email " required
+                [class.is-invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"
+              >
+              <small class="text-danger" *ngIf="registerForm.get('email')?.touched && !registerForm.get('email')?.dirty">Email Id is required</small>
+              <small class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('email')">Email Must Start with A-z and should have @</small>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="password" required
+                [class.is-invalid]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+              >
+
+              <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('required')">
+                <small class="text-danger">Password is required</small>
+              </div>
+
+              <!-- Display error message for custom pattern validation -->
+              <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('uppercase')">
+                <small class="text-danger">Password should have at least 1 uppercase letter</small>
+              </div>
+              <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('lowercase')">
+                <small class="text-danger">Password should have at least 1 lowercase letter</small>
+              </div>
+              <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('number')">
+                <small class="text-danger">Password should have at least 1 number</small>
+              </div>
+              <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('specialCharacter')">
+                <small class="text-danger">Password should have at least 1 special character</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              <input type="username" formControlName="username" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" placeholder="Enter username "
+                [class.is-invalid]="registerForm.get('username')?.invalid && registerForm.get('username')?.touched"
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Assign Role</label>
+              <select class="form-control" id="roleSelect" formControlName="role" name="role" id="selectRole"
+              >
+                <option value="">Select Role</option>
+                <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+              </select>
+              <small class="text-danger" *ngIf="registerForm.get('role')?.touched && !registerForm.get('role')?.dirty">Role is required</small>
+            </div>
+            <div>
+              <button type="submit" class="btn btnVoilet" (click)="onSubmit()">Sign up</button>
+            </div>
+            <div class="createAccount">
+              Already have a account? <span (click)="routeToSignin()">Sign In</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

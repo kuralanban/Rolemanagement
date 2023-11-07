@@ -1,0 +1,183 @@
+.role, .addRoleContainer, .tableContainer {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 100%;
+  margin: 10px;
+  background-color: white;
+}
+.search,.roleDescribe,.roleContainer{
+  margin: 10px 0px;
+}
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search input {
+  width: 90%;
+  box-shadow: var(--boxShadow);
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+}
+
+.roleDescribe {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  max-width: 100%;
+  width: 95%;
+  box-sizing: border-box;
+}
+
+.roleContainer {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 10px;
+  width: 95%;
+}
+
+.roleHeaders {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+.role, .addRoleContainer {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 100%;
+  width: 400px;
+  margin: 10px;
+  background-color: white;
+}
+
+.editRole button {
+  background-color: var(--kVoilet);
+  color: var(--borderGrey);
+  cursor: pointer;
+}
+
+.userCount span {
+  font-weight: 700;
+}
+
+.addRoleBtn {
+  background-color: var(--kVoilet);
+  color: whitesmoke;
+  height: 40px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  box-shadow: var(--boxShadow);
+  max-width: 150px;
+}
+
+.addRole {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.addRole div {
+  margin: 5px;
+}
+
+.addRole img {
+  height: 85px;
+}
+
+.search {
+  position: relative;
+}
+
+#navMenu {
+  position: relative;
+  left: 27px;
+  cursor: pointer;
+}
+
+.search input::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 14px;
+  position: relative;
+  left: 30px;
+}
+
+@media only screen and (max-width: 1500px) {
+  .roleContainer {
+    gap: 5px;
+    grid-template-columns: 2fr 2fr;
+  }
+  .role, .addRoleContainer {
+    width: 90%;
+  }
+  .roleDescribe {
+    width: 95%;
+  }
+  .addRoleBtn {
+    width: 100%;
+  }
+  #tableContainer {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .roleContainer {
+    grid-template-columns: repeat(auto-fill, minmax(550px, 2fr 2fr)); /* Responsive grid columns */
+  }
+  .role, .addRoleContainer {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .role, .addRoleContainer, .roleContainer, #tableContainer {
+    width: 86%;
+  }
+  .roleDescribe {
+    width: 90%;
+  }
+  .roleContainer {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 2fr 2fr)); /* Responsive grid columns */
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .role, .addRoleContainer, .roleContainer, #tableContainer, .roleDescribe {
+    width: 86%;
+  }
+  .roleContainer {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 2fr)); /* Responsive grid columns */
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .role, .addRoleContainer {
+    position: relative;
+    right: 15px;
+    width: 100%;
+    padding: 7px;
+  }
+  .roleContainer {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+  }
+}

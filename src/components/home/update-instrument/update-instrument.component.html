@@ -1,0 +1,62 @@
+<div class="formContainer" *ngIf="!deleteWarn">
+  <div class="signInForm">
+    <form class=""  [formGroup]="InstrumentForm">
+      <div class="heading">
+        <h2 class="headings">Update Instrument</h2>
+      </div>
+      <br>
+
+      <div class="form-group roleDiv">
+        <div>
+          <label for="roleName">Instrument Name</label> <br>
+          <input type="text"  name="roleName" class="form-control" placeholder="Enter Role Name"
+            required formControlName="InstrumentName">
+          <small class="text-danger" *ngIf="InstrumentForm.get('InstrumentName')?.invalid && InstrumentForm.touched">Instrument name is required</small>
+        </div>
+        <div>
+          <label for="roleName">Computer Host Name or IP</label> <br>
+          <input type="text"  name="Computer Host Name" class="form-control" placeholder="Enter Computer Host Name"
+            required formControlName="ComputerHostName">
+          <small class="text-danger" *ngIf="InstrumentForm.get('ComputerHostName')?.invalid && InstrumentForm.touched">Host name is required</small>
+        </div>
+        <div>
+          <label for="roleName">Application Name and version</label> <br>
+          <input type="text"  name="roleName" class="form-control" placeholder="Enter Application Name"
+            required formControlName="ApplicationName">
+        </div>
+        <div>
+          <label for="roleName">Location</label> <br>
+          <input type="text"  name="Location" class="form-control" placeholder="Enter Location"
+             formControlName="Location">
+        </div>
+      </div>
+
+
+      <div class="btns">
+        <button type="submit" class="btn submitBtn text-center" id="Formbtn" [disabled]="InstrumentForm.invalid" (click)="onSubmit()">Update</button>
+        <button type="submit" class="btn btn-light" id="Formbtn" (click)="cancel()">Cancel</button>
+
+        <button type="submit" class="btn btn-dark" id="Formbtn" (click)="deleteRole()" *ngIf="!deleteWarn">Delete</button>
+      </div>
+<br>
+      <small>By creating, you agree to give administrator to assign <br> instrument access to concerned pages.</small>
+      <br>
+    </form>
+  </div>
+</div>
+<div class="delete" *ngIf="deleteWarn">
+  <div class="warnMessage">
+    <div class="imag">
+      <img src="../../../assets/delete.png" alt="" style="height: 100px;">
+    </div>
+    <div class="text-align-center d-flex  flex-column align-items-center justify-content-center">
+      <strong class="">Are You Sure ?  Want to delete</strong>
+      <strong class=""> the instrument <span class="text-dark"> {{data.instrumentName}}</span></strong>
+        <strong>  hosted by {{data.ComputerHostName}}</strong>
+    </div>
+  </div>
+  <div class="deleteBtn">
+    <button type="submit" class="btn btn-dark" id="Formbtn" (click)="deleteRole()">Delete</button>
+    <button type="submit" class="btn btn-light" id="Formbtn" (click)="cancel()">Undo</button>
+  </div>
+</div>

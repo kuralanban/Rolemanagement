@@ -1,0 +1,37 @@
+<div class="homeContainer">
+  <div class="search" id="search">
+    <span type="button" mat-button class=" material-symbols-outlined" (click)="toggleNavbar()" id="navMenu" *ngIf="isMobile$ | async">
+      menu
+    </span>
+    <span class="material-symbols-outlined" *ngIf="(isMobile$ | async )=== false" id="navMenu">
+      search
+      </span>
+    <input type="text" placeholder="search">
+  </div>
+  <div class="content">
+  <div class="roleDescribe">
+    <h3>Instument List</h3>
+    <p>A Instrument can be accessed depending on the role of the user
+      assigned by an administrator </p>
+  </div>
+  <div class="roleContainer">
+    <div class="role" *ngFor="let instrument of instruments">
+      <div class="roleHeaders">
+        <div class="userCount">
+          <span class="material-symbols-outlined">
+            robot_2
+            </span>
+        </div>
+        <div class="userDp">
+  <span>{{instrument.instrumentName}}</span>
+        </div>
+        <div class="roleName">
+          <h3>Hosted by {{instrument.ComputerHostName}}</h3>
+        </div>
+        <div class="editRole">
+          <button (click)="showInstruction(instrument)" class="btn">Show</button>
+        </div>
+      </div>
+    </div>
+  </div>  </div>
+</div>

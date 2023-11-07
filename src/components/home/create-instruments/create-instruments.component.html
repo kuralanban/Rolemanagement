@@ -1,0 +1,45 @@
+<div class="formContainer">
+  <div class="signInForm">
+    <form class=""  [formGroup]="InstrumentForm">
+      <div class="heading">
+        <h2 class="headings">Create Instrument</h2>
+      </div>
+      <br>
+
+      <div class="form-group roleDiv">
+        <div>
+          <label for="roleName">Instrument Name</label> <br>
+          <input type="text"  name="roleName" class="form-control" placeholder="Enter Role Name"
+            required formControlName="InstrumentName">
+          <small class="text-danger" *ngIf="InstrumentForm.get('InstrumentName')?.invalid && InstrumentForm.touched">Instrument name is required</small>
+        </div>
+        <div>
+          <label for="roleName">Computer Host Name or IP</label> <br>
+          <input type="text"  name="Computer Host Name" class="form-control" placeholder="Enter Computer Host Name"
+            required formControlName="ComputerHostName">
+          <small class="text-danger" *ngIf="InstrumentForm.get('ComputerHostName')?.invalid && InstrumentForm.touched">Host name is required</small>
+        </div>
+        <div>
+          <label for="roleName">Application Name and version</label> <br>
+          <input type="text"  name="roleName" class="form-control" placeholder="Enter Application Name"
+            required formControlName="ApplicationName">
+        </div>
+        <div>
+          <label for="roleName">Location</label> <br>
+          <input type="text"  name="Location" class="form-control" placeholder="Enter Location"
+             formControlName="Location">
+        </div>
+      </div>
+
+
+      <div class="btns">
+        <button type="submit" class="btn submitBtn text-center" id="Formbtn" [disabled]="InstrumentForm.invalid" (click)="onSubmit()">Create</button>
+        <button type="submit" class="btn btn-light" id="Formbtn">Cancel</button>
+
+      </div>
+<br>
+      <small>By creating, you agree to give administrator to assign <br> instrument access to concerned pages.</small>
+      <br>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="formContainer">
+  <div class="signInForm">
+    <form class=""  [formGroup]="instrumentForm">
+      <div class="heading">
+        <h2 class="headings">Assign Role</h2>
+      </div>
+      <br>
+
+      <div class="form-group roleDiv">
+        <div>
+          <label for="roleName">Name</label> <br>
+          <input type="text"  name="roleName" class="form-control" placeholder="Enter Role Name"
+            required  [disabled]="true" [value]="data.userName">
+        </div>
+        <div>
+          <label for="roleName">Email</label> <br>
+          <input type="text"  name="roleName" class="form-control" placeholder="Enter Role Name"
+            required  [disabled]="true" [value]="data.userEmail">
+        </div>
+        <div>
+          <label for="roleName">Role</label> <br>
+
+          <select name="" id="" (change)="onchangeDetected($event)" formControlName="role">
+            <!-- <option [value]="data.userRole">{{ data.userRole }}</option> -->
+              <option value="{{role.role}}"  *ngFor="let role of roles">{{ role.role }}</option>
+          </select> <br>
+          <small class="text-danger" *ngIf="instrumentForm.get('role')?.touched && !instrumentForm.get('role')?.dirty">Role is required</small>
+
+        </div>
+      </div>
+
+      <div class="btns">
+        <button type="submit" class="btn submitBtn text-center" id="Formbtn" [disabled]="instrumentForm.invalid" (click)="onSubmit()">Assign</button>
+        <button type="submit" class="btn btn-light" id="Formbtn">Cancel</button>
+
+      </div>
+<br>
+      <small>By creating, you agree to give administrator to assign <br> instrument access to concerned pages.</small>
+      <br>
+    </form>
+  </div>
+</div>

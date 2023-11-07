@@ -1,0 +1,65 @@
+<div class="formContainer" *ngIf="!deleteWarn">
+  <div class="signInForm">
+    <form class="" [formGroup]="roleForm">
+      <div class="heading">
+        <h2 class="headings">Edit Role</h2>
+        <h3>Set role permissions</h3>
+      </div>
+      <br>
+
+      <div class="form-group roleDiv">
+        <div>
+          <label for="roleName">Role Name</label> <br>
+          <input type="text" id="roleName" name="roleName" class="form-control" placeholder="Enter Role Name"
+            required formControlName="roleName" value="{{roleDetails.role}}">
+          <small class="text-danger" *ngIf="roleForm.get('roleName')?.invalid && roleForm.touched">Role name is required</small>
+        </div>
+      </div>
+      <br>
+      <div class="form-group instrument">
+        <h2 class="headings">Instrument Permissions</h2>
+        <div class="pageAccess">
+
+          <section class="example-section" *ngFor="let permission of roleDetails.instrumentPermissions">
+            <div>
+              <label for="">{{ permission.instrumentName }}</label>
+              <input type="checkbox" name="permissions"  [checked]="permission.permissionStatus" id="checkBox"
+                     (change)="togglePermissions(permission)">
+            </div>
+          </section>
+
+
+        </div>
+      </div>
+      <br>
+      <div class="btns">
+        <button type="submit" class="btn submitBtn text-center" id="Formbtn" [disabled]="roleForm.invalid" (click)="onSubmit()">Update</button>
+        <button type="submit" class="btn btn-light" id="Formbtn" (click)="cancel()">Cancel</button>
+
+        <button type="submit" class="btn btn-dark" id="Formbtn" (click)="deleteRole()" *ngIf="!deleteWarn">Delete</button>
+      </div>
+      <br>
+      <br>
+      <small *ngIf="!deleteWarn">By Changing, you agree to give users access to concerned pages.</small>
+
+
+      <br>
+    </form>
+  </div>
+</div>
+      <div class="delete" *ngIf="deleteWarn">
+        <div class="warnMessage">
+          <div class="imag">
+            <img src="../../../assets/delete.png" alt="" style="height: 100px;">
+          </div>
+          <div class="text-align-center d-flex  flex-column align-items-center justify-content-center">
+            <strong class="">Are You Sure ? </strong>
+            <strong class="">  Want to delete the role</strong>
+              <strong> <span class="text-dark">assigned to {{data.count}}</span>  users</strong>
+          </div>
+        </div>
+        <div class="deleteBtn">
+          <button type="submit" class="btn btn-dark" id="Formbtn" (click)="deleteRole()">Delete</button>
+          <button type="submit" class="btn btn-light" id="Formbtn" (click)="cancel()">Undo</button>
+        </div>
+      </div>

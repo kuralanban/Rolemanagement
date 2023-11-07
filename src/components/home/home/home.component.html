@@ -1,0 +1,55 @@
+<div class="homeContainer">
+  <div class="search" id="search">
+    <span type="button" mat-button class=" material-symbols-outlined" (click)="toggleNavbar()" id="navMenu" *ngIf="isMobile$ | async">
+      menu
+    </span>
+    <span class="material-symbols-outlined" *ngIf="(isMobile$ | async )=== false" id="navMenu">
+      search
+      </span>
+    <input type="text" placeholder="search">
+  </div>
+  <div class="roleDescribe" >
+    <h3>Roles List</h3>
+    <p>A role provided access to predefined menus and features so that depending on
+      assigned role an administrator can have access to what user needs.</p>
+  </div>
+  <div class="roleContainer">
+    <div class="role" *ngFor="let role of roles">
+      <div class="roleHeaders">
+        <div class="userCount">
+          <span>
+            Total Number of users :{{role.count}}
+          </span>
+        </div>
+        <div class="userDp">
+          <img src="../../../assets/6494864310591189dff56601_metroDp.JPG" alt="">
+          <img src="../../../assets/6494864310591189dff56601_metroDp.JPG" alt="">
+          <img src="../../../assets/6494864310591189dff56601_metroDp.JPG" alt="">
+
+        </div>
+      </div>
+      <div class="roleName">
+        <h3>{{role.role}}</h3>
+      </div>
+      <div class="editRole">
+    <span (click)="editRole(role)">Edit Role</span>
+      </div>
+    </div>
+    <div class="addRoleContainer">
+      <div class="addRole">
+        <div>
+          <img src="../../../assets/sitting-girl-with-laptop-light.png" alt="">
+        </div>
+        <div>
+          <div>
+            <button class="addRoleBtn" (click)="createRole()">Add Role</button>
+          </div>
+          <div>
+           <p>Add role, if it does not exist</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<app-user-details id="tableContainer"></app-user-details>
+</div>

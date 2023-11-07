@@ -1,0 +1,15 @@
+.content{
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}
+#outlet{
+  background-color: rgba(247, 245, 250, 0.705);
+  width: 100%;
+  overflow: hidden;
+}
+#navbar{
+  position: relative;
+  background-color: white;
+  height: 500px;
+}

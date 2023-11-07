@@ -1,0 +1,116 @@
+
+.navheader,.navbarContainer,.navitem{
+  display: flex;
+}
+.justfy{
+  justify-content: space-around;
+  width: 200px;
+
+}
+.navheader{
+  width: 80px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.addNavHeaderwidth{
+  width: 200px;
+}
+.navbarContainer{
+flex-direction: column;
+width: 80px;
+border-radius: 0px 10px 10px 0px;
+}
+.ChangenavbarWidth{
+  width: 250px;
+  transition: width 0.3s ;
+}
+.justify{
+  justify-content: center;
+  width: 200px;
+}
+.navheader h2{
+  margin: 5px 0px 5px 5px;
+  font-style: bold;
+  color: var(--font);
+  font-weight: 800;
+}
+.navheader span{
+  background-color: var(--kVoilet);
+  border-radius: 50px;
+  color: whitesmoke;
+box-shadow: var(--boxShadow);
+position: absolute;
+left: 240px;
+cursor: pointer;
+
+}
+.navheader,.navitemR {
+  align-items: center;
+}
+.navheader img
+{
+height: 50px;
+}
+.navitemR{
+cursor: pointer;
+width: 200px ;
+margin: 5px 0px;
+display: flex;
+}
+.navitemR div{
+  margin: 5px ;
+}
+#navitemR{
+  width: 100%;
+}
+.navItemContainer{
+margin: 20px;
+}
+.example-sidenav {
+  width: 250px;
+}
+
+.navbarR {
+  display: flex;
+  z-index: 2;
+  /* position: initial; */
+  top: 0;
+  left: 0;
+}
+
+.notMobile{
+  position: fixed;
+  left: 0;
+  top: 150px;
+}
+
+#arrow{
+  position: fixed;
+  top: 15px;
+  left: 0;
+  box-shadow: var(--boxShadow);
+}
+.search,.search input {
+  width: 100%;
+}
+
+.toggleNavHeight{
+
+  box-shadow: var(--boxShadow);
+
+}
+#navDrawer{
+  border: none;
+}
+
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Adjust the width as needed */
+  height: 100%; /* Make the navbar take the full height of the viewport */
+  color: white; /* Adjust the text color as needed */
+  /* Add any other styles you want for your fixed navbar */
+}

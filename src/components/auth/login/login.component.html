@@ -1,0 +1,72 @@
+<div class="loginContainer">
+  <div class="imageContainer">
+    <img src="../../../assets/boy.png" alt="" />
+  </div>
+  <div class="login">
+    <div class="loginForm">
+      <div class="formHeader">
+        <div>
+          <img src="../../../assets/aspire.png" alt="" style="height: 50px;" />
+        </div>
+        <div>
+          <h3 class="title">
+            Aspire
+          </h3>
+        </div>
+      </div>
+      <div class="welcomeDiv">
+        <div class="welcomAspire">
+          Welcome to Aspire! 👋
+        </div>
+        <div id="sec">
+          Please sign-in to your account and start Managing
+        </div>
+      </div>
+      <div class="form">
+        <form [formGroup]="loginForm" >
+          <div class="example-container">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter Email " required
+                [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+              >
+              <small class="text-danger" *ngIf="loginForm.get('email')?.touched && !loginForm.get('email')?.dirty">Email Id is required</small>
+              <small class="text-danger" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')">Email Must Start with A-z and should have @</small>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="password" required
+                [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+              >
+
+              <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+                <small class="text-danger">Password is required</small>
+              </div>
+
+              <!-- Display error message for custom pattern validation -->
+              <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('uppercase')">
+                <small class="text-danger">Password should have at least 1 uppercase letter</small>
+              </div>
+              <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('lowercase')">
+                <small class="text-danger">Password should have at least 1 lowercase letter</small>
+              </div>
+              <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('number')">
+                <small class="text-danger">Password should have at least 1 number</small>
+              </div>
+              <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('specialCharacter')">
+                <small class="text-danger">Password should have at least 1 special character</small>
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="btn btnVoilet" (click)="onSubmit()">Sign in</button>
+            </div>
+            <div class="createAccount">
+              New on our platform? <span (click)="routeToRegister()">Create an account</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

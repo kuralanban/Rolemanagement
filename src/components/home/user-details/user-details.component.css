@@ -1,0 +1,162 @@
+.media {
+  display: flex;
+  /* width: 100%; */
+  justify-content: center;
+  align-items: center;
+}
+.media img{
+  border-radius: 50%;
+  margin: 5px 10px;
+}
+.media-body {
+  width: 200px;
+  text-align: start;
+}
+.container {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: white;
+}
+
+.tableHeader {
+  display: flex;
+  height: 50px;
+  /* border-bottom: 1px solid var(--borderGrey); */
+}
+thead{
+  border: 1px solid var(--borderGrey);
+
+}
+.end {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.end input,
+.tableHeader select {
+  height: 35px;
+  border: 1px solid var(--borderGrey);
+  width: 200px;
+  border-radius: 7px;
+  margin: 5px 10px;
+}
+
+
+
+/* Additional styles for table and table header */
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  border-top: 1px solid var(--borderGrey);
+  border-bottom: 1px solid var(--borderGrey);
+  height: 30px;
+}
+th,
+td {
+  padding: 8px;
+}
+td{
+  text-align: start;
+  width: 250px;
+}
+thead {
+  background-color: var(--headerColor);
+  color: white;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.tableHeader select,
+.tableHeader input {
+  height: 35px;
+  border: 1px solid var(--borderGrey);
+  border-radius: 7px;
+  width: 200px;
+}
+.Active{
+  background-color: lightgreen;
+  color: darkgreen;
+}
+.Inactive{
+  background-color: rgb(202, 96, 96);
+  color: darkred;
+}
+.Inactive,.Active{
+  height: 50px;
+  padding: 5px;border-radius: 10px;
+}
+.role span,.Inactive,.Active,.eye{
+  position: relative;
+  top: 15px;
+
+}
+.eye{
+  cursor: pointer;
+}
+@media only screen and (max-width: 1500px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    width: 100%;
+  }
+#pages{
+  display: none;
+}
+#selectRole,#search{
+  width: 100%;
+}
+}
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+#pages{
+  display: none;
+}
+#selectRole,#search{
+  width: 100%;
+}
+}
+
+@media only screen and (max-width: 750px) {
+
+.activity{
+  display: none;
+}
+
+}
+@media only screen and (max-width: 600px) {
+  .status{
+    display: none;
+  }
+
+  }
+  @media only screen and (max-width: 450px) {
+    .role{
+      display: none;
+    }
+td{
+  width: 100px;
+}
+    }
